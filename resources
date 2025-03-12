@@ -1,0 +1,34 @@
+good resources> https://dev.to/iamkhalil42/all-you-need-to-know-about-c-static-libraries-1o0b
+
+v prupoctu real/imaginary doplnit c
+
+##bailout = předem definovaná vzdálenost od výchozího stavu, počet iterací potřebných k dosažení mezní hodnoty
+##pro optimalizaci pro běžná zařízení zastavíme počet iterací na 1000
+##funkce plot() vykreslí body na diagramu
+
+funkce Juliova(C)                           funkce Mandelbrotova()
+                for y = 0 to výška_obrazovky
+                for x = 0 to šířka_obrazovky
+z = complex(x,y)                            C = complex(x,y); z = (0,0)
+                počet = 0
+                repeat
+                z = (z^2) + C
+                počet = počet + 1
+                until abs(z) > bailout or počet > 1000
+                plot (x, y, colour(počet))
+                next x; next y
+                return
+
+
+
+ z^{2}+c
+
+1. check for input
+    if mandelbrot
+    if julia <valuereal> <valueimaginary>
+    could use cpy str
+    if different error? or write correct promt
+
+2. setting mlx
+    check manual  
+    using typedef struct for creating a window/image
