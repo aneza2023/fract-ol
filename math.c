@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:24 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/12 19:05:15 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:33:25 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,33 @@ void mapping(int x, int y, t_fractal *mandel)
     }
     z->im = 0.0;
     z->real = 0.0;
-    c->im = mapping_pixels(y, 2, -2, HEIGHT, i);
-    c->real = mapping_pixels(x, -2, 2, WIDTH, i);
+    c->im = mapping_pixels(2, -2, WIDTH, y, i);
+    c->real = mapping_pixels(-2, 2, HEIGHT, x, i);
     while (i < 50)
     {
         z = addition_of_nb(square_of_nb(z), c);
-        if (((z->real * z->real) + (z->im * z->im)) > 4)
-            mlx_put_pixel(mandel->img, c->real, c->im, 0xFF2600FF);
-        else
-            mlx_put_pixel(mandel->img, c->real, c->im, 0xFF0000FF);
+        printf("%f ", c->real);
+        printf("%f\n", c->im);
+        // if (c->real < 0 || c->im < 0) {
+        //     i++;
+        //     continue;
+        // }
+        if (((z->real * z->real) + (z->im * z->im)) > 4) {
+            printf("It's outside\n");
+            mlx_put_pixel(mandel->img, c->real, c->im, 0xAAAFFF);
+            // mlx_put_pixel(mandel->img, c->real, c->im, 0xFF0000FF);
+        }
+        else {
+            printf("It's inside\n");
+            mlx_put_pixel(mandel->img, x, y, 0x0000FF);
+            // mlx_put_pixel(mandel->img, c->real, c->im, 0x0000FF);
+        }
+        i++;
     }
+    if (((z->real * z->real) + (z->im * z->im)) < 4) 
+        mlx_put_pixel(mandel->img, c->real, c->im, 0xAAAFFF);
+ //   mlx_image_to_window(mandel->mlx, mandel->img, 0, 0);
+
+ //   mlx_put_pixel(mandel->img, 1, 1, 0x0000FF);
+
 }
