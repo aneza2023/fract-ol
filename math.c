@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:24 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/12 19:33:25 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/18 16:10:13 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,51 +53,35 @@ double mapping_pixels(double new_max, double new_min, double old_max, double old
 void mapping(int x, int y, t_fractal *mandel)
 {
     int             i;
+    int				color;
     t_complex_nb    *z;
     t_complex_nb    *c;
 
     i = 0;
     z = (t_complex_nb *)malloc(sizeof(t_complex_nb *));
-    if (z == NULL)
-    {
-        printf("Error\n");
-        return ;
-    }
     c = (t_complex_nb *)malloc(sizeof(t_complex_nb *));
-    if (c == NULL)
+    if (c == NULL || z == NULL)
     {
         printf("Error\n");
         return ;
     }
     z->im = 0.0;
     z->real = 0.0;
-    c->im = mapping_pixels(2, -2, WIDTH, y, i);
-    c->real = mapping_pixels(-2, 2, HEIGHT, x, i);
-    while (i < 50)
+/* 	mandel->shift_x = 0.0;
+	mandel->shift_y = 0.0;
+	mandel->iteration = 0; */
+    c->real = mapping_pixels(2, -2, WIDTH, 0, x) + mandel->shift_x;
+    c->im = mapping_pixels(-2, 2, HEIGHT, 0, y) + mandel->shift_y;
+    while (i < 300)
     {
-        z = addition_of_nb(square_of_nb(z), c);
-        printf("%f ", c->real);
-        printf("%f\n", c->im);
-        // if (c->real < 0 || c->im < 0) {
-        //     i++;
-        //     continue;
-        // }
+        z = addition_of_nb(square_of_nb(z), c);        
         if (((z->real * z->real) + (z->im * z->im)) > 4) {
-            printf("It's outside\n");
-            mlx_put_pixel(mandel->img, c->real, c->im, 0xAAAFFF);
-            // mlx_put_pixel(mandel->img, c->real, c->im, 0xFF0000FF);
-        }
-        else {
-            printf("It's inside\n");
-            mlx_put_pixel(mandel->img, x, y, 0x0000FF);
-            // mlx_put_pixel(mandel->img, c->real, c->im, 0x0000FF);
+            color = mapping_pixels(0xFFFFFF, 0x000000, 50, 0, i + mandel->iteration);
+            mlx_put_pixel(mandel->img, x, y, color);
+			return ;
         }
         i++;
     }
     if (((z->real * z->real) + (z->im * z->im)) < 4) 
-        mlx_put_pixel(mandel->img, c->real, c->im, 0xAAAFFF);
- //   mlx_image_to_window(mandel->mlx, mandel->img, 0, 0);
-
- //   mlx_put_pixel(mandel->img, 1, 1, 0x0000FF);
-
+        mlx_put_pixel(mandel->img, x, y, 0x39FF14);
 }

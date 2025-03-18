@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/12 18:55:29 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/18 16:10:34 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ typedef struct fractal
     double      cy;
     mlx_t       *mlx;
     mlx_image_t *img;
+    double      iteration;
+    double      shift_x;
+    double      shift_y;
 }   t_fractal;
 
 typedef struct complex_nb
@@ -47,10 +50,11 @@ int     check_mandelbrot(char *argv);
 int     kickoff_mandelbrot(void);
 int     create_window(t_fractal *mandel);
 int     putting_mandelbrot(t_fractal *mandel);
-void    hoopmain(void *param);
+void	hoopmain(void *param);
 void    mapping(int x, int y, t_fractal *mandel);
 double  mapping_pixels(double new_max, double new_min, double old_max, double old_min, int i);
 t_complex_nb *addition_of_nb(t_complex_nb *z, t_complex_nb *c);
 t_complex_nb *square_of_nb(t_complex_nb *z);
+void hooks_for_stuff(t_fractal *mandel);
 
 #endif
