@@ -7,7 +7,8 @@ SOURCES = fractol.c\
 			mandelbrot.c\
 			strcmp.c\
 			hooks.c\
-			math.c
+			math.c\
+			ending_prg.c
 MLX42LIB = MLX42/build/libmlx42.a
 
 OBJS = $(SOURCES:.c=.o)

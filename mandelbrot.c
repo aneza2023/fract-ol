@@ -3,32 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/12 19:08:50 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:08:37 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+t_fractal	*putting_val(t_fractal *mandel)
+{
+	mandel->zx = 0.0;
+	mandel->zy = 0.0;
+	mandel->iteration = 0;
+	mandel->shift_x = 0.0;
+	mandel->shift_y = 0.0;
+	return (mandel);
+}
+
 int putting_mandelbrot(t_fractal *mandel)
 {
-/* 	int		i;
-	int		k;
-
-	i = 0;
-	while (i < WIDTH)
-	{
-		k = 0;
-		while (k < HEIGHT)
-		{
-			mlx_put_pixel(mandel->img, k, i, 0xFF2600FF);
-			k++;
-		}
-		i++;
-	} */
-
 	int		x;
 	int		y;
 
@@ -52,10 +47,7 @@ int	create_window(t_fractal *mandel)
 
 	mandel_set = mlx_new_image(mandel->mlx, WIDTH, HEIGHT);
 	if (mandel_set == NULL)
-	{
-		printf("Error\n");
-		return (1);
-	}
+		allocation_failed(mandel_set);
 	mandel->img = mandel_set;
 	mlx_image_to_window(mandel->mlx, mandel->img, 0, 0);
 	putting_mandelbrot(mandel);
@@ -69,20 +61,16 @@ int kickoff_mandelbrot()
 
 	mandel = (t_fractal *)malloc(sizeof(t_fractal *));
 	if (mandel == NULL)
-	{
-		printf("Error\n");
-		return (1);
-	}
+		allocation_failed(mandel);
 	mandelbrot = mlx_init(WIDTH, HEIGHT, "mandelbrot", true);
 	if (mandelbrot == NULL)
-	{
-		printf("Error\n");
-		return (1);
-	}
+		allocation_failed(mandelbrot);
 	mandel->mlx = mandelbrot;
+	mandel = putting_val(mandel);
 	create_window(mandel);
-	mlx_loop_hook(mandel->mlx, hoopmain, mandel);
+	hooks_for_stuff(mandel);
+//	mlx_loop_hook(mandel->mlx, hoopmain, mandel);
 	mlx_loop(mandel->mlx);
-//	mlx_terminate(mandelbrot);
+	mlx_terminate(mandelbrot);
 	return (0);
 }

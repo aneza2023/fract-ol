@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/18 16:10:34 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/19 11:29:47 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,10 @@ double  mapping_pixels(double new_max, double new_min, double old_max, double ol
 t_complex_nb *addition_of_nb(t_complex_nb *z, t_complex_nb *c);
 t_complex_nb *square_of_nb(t_complex_nb *z);
 void hooks_for_stuff(t_fractal *mandel);
+t_fractal	*putting_val(t_fractal *mandel);
+int error_input(void);
+int allocation_failed(void *fractol);
+int correct_ending(void *fractol);
+int	kickoff_julia(double real, double im);
 
 #endif

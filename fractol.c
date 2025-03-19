@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:17 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/10 22:17:23 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/19 11:14:17 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,27 @@ int check_julia(char *argv)
 int getting_val(char *argv1, char *argv2)
 {
     double   real;
-    double  im;
+    double   im;
 
     real =  ft_atof(argv1);
     im = ft_atof(argv2);
-    real = im + real; //for make
-  //  kickoff_julia(real, im);
-/*     printf("values before atof:\n %s\n %s\n", argv1, argv2);
-    printf("values:\n %f\n %f\n", real, im);  */
+    real = im + real;
+    kickoff_julia(real, im);
     return (0); 
 }
 
 int main(int argc, char *argv[])
 {
     if (argc != 2 && argc != 4)
-    {
-        write(1, "wrong input\n", 13);
-        return (1);
-    }
+        error_input();
     else
     {
-        if (check_mandelbrot(argv[1]) == 0){
-            printf("mandelbrot kickoff");
+        if (check_mandelbrot(argv[1]) == 0)
             kickoff_mandelbrot();
-        }
         else if (check_julia(argv[1]) == 0 && argc == 4)
-        {
             getting_val(argv[2], argv[3]);
-            printf("julia kickoff");
-        }
-        else{
-            write(1, "wrong input\n", 13);
-            return (1);
-        }
+        else
+            error_input();
     }
     return (0);
 }

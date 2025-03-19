@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   ending_prg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 21:49:59 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/19 11:29:28 by anezka           ###   ########.fr       */
+/*   Created: 2025/03/19 10:30:29 by anezka            #+#    #+#             */
+/*   Updated: 2025/03/19 10:54:23 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	kickoff_julia(double real, double im)
+int error_input(void)
 {
-	mlx_t		*julia_con;
-	t_fractal	*julia;
+    write(1, "Parameter invalid\n", 18);
+    write(1, "Choose from valid parameters:\n", 30);
+    write(1, "'Julia <value> <value>' or 'Mandelbrot'\n", 41);
+    exit(1);
+}
 
-	julia = (t_fractal *)malloc(sizeof(t_fractal *));
-	if (julia == NULL)
-		allocation_failed(julia);
-	julia_con = mlx_init(WIDTH, HEIGHT, "Julia", true);
-	if (julia_con == NULL)
-		allocation_failed(julia_con);
-	julia->mlx = julia_con;
-	julia->zx = real;
-	julia->zy = im;
-	
-	return (0);
+int allocation_failed(void *fractol)
+{
+    write(1, "Allocation failed\n", 18);
+    free(fractol);
+    exit(1);
+}
+
+int correct_ending(void *fractol)
+{
+    free(fractol);
+    exit (0);
 }
