@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ending_prg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:30:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/19 10:54:23 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/22 14:56:42 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int error_input(void)
     exit(1);
 }
 
-int allocation_failed(void *fractol)
+int allocation_failed(void *fractolpt)
 {
     write(1, "Allocation failed\n", 18);
-    free(fractol);
+    free(fractolpt);
     exit(1);
 }
 

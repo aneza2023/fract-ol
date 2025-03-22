@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/19 11:08:37 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/22 14:50:14 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_fractal	*putting_val(t_fractal *mandel)
 	mandel->iteration = 0;
 	mandel->shift_x = 0.0;
 	mandel->shift_y = 0.0;
+	mandel->zoom = 0.0;
 	return (mandel);
 }
 

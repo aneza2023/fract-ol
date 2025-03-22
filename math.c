@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:24 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/19 10:56:47 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/22 14:49:32 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void mapping(int x, int y, t_fractal *mandel)
 		allocation_failed(z);
     z->im = 0.0;
     z->real = 0.0;
-    c->real = mapping_pixels(2, -2, WIDTH, 0, x) + mandel->shift_x;
-    c->im = mapping_pixels(-2, 2, HEIGHT, 0, y) + mandel->shift_y;
+    c->real = mapping_pixels(2, -2, WIDTH, 0, x) / mandel->zoom + mandel->shift_x;
+    c->im = mapping_pixels(-2, 2, HEIGHT, 0, y) / mandel->zoom + mandel->shift_y;
     while (i < 40)
     {
         z = addition_of_nb(square_of_nb(z), c);        

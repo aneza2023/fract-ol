@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/19 11:29:47 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/22 14:48:21 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct fractal
     double      iteration;
     double      shift_x;
     double      shift_y;
+    double      zoom;
 }   t_fractal;
 
 typedef struct complex_nb
@@ -61,5 +62,7 @@ int error_input(void);
 int allocation_failed(void *fractol);
 int correct_ending(void *fractol);
 int	kickoff_julia(double real, double im);
+
+void	scrooling(double xdelta, double ydelta, void *param);
 
 #endif
