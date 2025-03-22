@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:24 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/22 14:49:32 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:43:31 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_complex_nb *addition_of_nb(t_complex_nb *z, t_complex_nb *c)
 		allocation_failed(result);
     result->real = z->real + c->real;
     result->im = z->im + c->im;
+	printf("%f", result->real);
     return (result);
 }
 
@@ -47,31 +48,28 @@ double mapping_pixels(double new_max, double new_min, double old_max, double old
 void mapping(int x, int y, t_fractal *mandel)
 {
     int             i;
-    int				color;
-    t_complex_nb    *z;
-    t_complex_nb    *c;
+//    int				color;
 
     i = 0;
-    z = (t_complex_nb *)malloc(sizeof(t_complex_nb *));
-    c = (t_complex_nb *)malloc(sizeof(t_complex_nb *));
-    if (c == NULL)
-		allocation_failed(c);
-	if (z == NULL)
-		allocation_failed(z);
-    z->im = 0.0;
-    z->real = 0.0;
-    c->real = mapping_pixels(2, -2, WIDTH, 0, x) / mandel->zoom + mandel->shift_x;
-    c->im = mapping_pixels(-2, 2, HEIGHT, 0, y) / mandel->zoom + mandel->shift_y;
-    while (i < 40)
+	(void)x;
+	(void)y;
+	(void)mandel;
+	// mapping pixels / zoom + shift;
+	mandel->c->real = mapping_pixels(2, -2, WIDTH, 0, x);
+    mandel->c->im = mapping_pixels(-2, 2, HEIGHT, 0, y);
+	mandel->z = addition_of_nb(square_of_nb(mandel->z), mandel->c); 
+/*     while (i < 2)
     {
-        z = addition_of_nb(square_of_nb(z), c);        
-        if (((z->real * z->real) + (z->im * z->im)) > 4) {
-            color = mapping_pixels(0xFFFFFF, 0x000000, 50, 0, i + mandel->iteration);
+    	mandel->z = addition_of_nb(square_of_nb(mandel->z), mandel->c);        
+        if (((mandel->z->real * mandel->z->real) + (mandel->z->im * mandel->z->im)) > 4) {
+            color = mapping_pixels(BLUE, GREEN, 50, 0, i + mandel->iteration);
             mlx_put_pixel(mandel->img, x, y, color);
 			return ;
         }
         i++;
     }
-    if (((z->real * z->real) + (z->im * z->im)) < 4) 
-        mlx_put_pixel(mandel->img, x, y, 0x39FF14);
+    if (((mandel->z->real * mandel->z->real) + (mandel->z->im * mandel->z->im)) < 4){
+    	mlx_put_pixel(mandel->img, x, y, MAROON);
+	}
+	putting_mandelbrot(mandel); */
 }

@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:17 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/22 14:55:15 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/22 18:10:12 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int check_mandelbrot(char *argv)
 {
-    if(ft_strncmp(argv, "mandelbrot", 10) == 0)
+    if(ft_strncmp(argv, "Mandelbrot", 10) == 0)
         return (0);
     return (1);
 }
 
-int check_julia(char *argv)
+/* int check_julia(char *argv)
 {
     if (ft_strncmp(argv, "julia", 5) != 0)
     {
@@ -39,7 +39,7 @@ int getting_val(char *argv1, char *argv2)
     real = im + real;
     kickoff_julia(real, im);
     return (0); 
-}
+} */
 
 int main(int argc, char *argv[])
 {
@@ -49,8 +49,8 @@ int main(int argc, char *argv[])
     {
         if (check_mandelbrot(argv[1]) == 0)
             kickoff_mandelbrot();
-        //else if (check_julia(argv[1]) == 0 && argc == 4)
-          //  getting_val(argv[2], argv[3]);
+/*         else if (check_julia(argv[1]) == 0 && argc == 4)
+            getting_val(argv[2], argv[3]); */
         else
             error_input();
     }
