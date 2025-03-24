@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/22 18:41:49 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/24 09:14:51 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ t_fractal	*putting_val(t_fractal *mandel)
 	mandel->z->im = 0;
 	mandel->c->real = 0;
 	mandel->c->im = 0;
-	mandel->iteration = 0;
+	mandel->iteration = 30;
 	mandel->shift_x = 0.0;
 	mandel->shift_y = 0.0;
-	mandel->zoom = 0.0;
+	mandel->zoom = 1;
 	printf("%f", mandel->z->real);
 	return (mandel);
 }
@@ -39,7 +39,6 @@ int putting_mandelbrot(t_fractal *mandel)
 	int		y;
 
 	x = 0;
-	//(void)mandel;
 	while (x < WIDTH)
 	{
 		y = 0;
