@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 15:21:07 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 16:06:00 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ double 			ft_atofcont(char *argv);
 // help fce
 int				error_input(void);
 int 			allocation_failed(void *fractol);
-int 			correct_ending(void *fractol);
+int				correct_ending(void *param);
 
 
 #endif
