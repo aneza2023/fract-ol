@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:59 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 14:17:56 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 14:30:18 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void mapp_julia(int x, int y, t_fractal *julia)
         i++;
     }
     if (((julia->z->real * julia->z->real) + (julia->z->im * julia->z->im)) < 4){
-    	mlx_put_pixel(julia->img, x, y, MAROON);
+    	mlx_put_pixel(julia->img, x, y, ORANGE);
 	}
 }
 

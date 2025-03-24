@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:26:36 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 10:43:46 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 14:36:40 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	hoopmain(void *param)
 		mlx_close_window(mandel->mlx);
 		// free(mandel);		
 	}
-	// BONUS IF IT WORKS - works for a bit, later killed
  	else if (mlx_is_key_down(mandel->mlx, MLX_KEY_UP)){
 		mandel->shift_y -= 0.5;
 		putting_mandelbrot(mandel);
@@ -41,7 +40,7 @@ void	hoopmain(void *param)
 		putting_mandelbrot(mandel);
 	}
 
-	else if (mlx_is_key_down(mandel->mlx, MLX_KEY_MINUS)){
+	else if (mlx_is_key_down(mandel->mlx, MLX_KEY_KP_SUBTRACT)){
 		mandel->iteration -= 5;
 		putting_mandelbrot(mandel);
 	}

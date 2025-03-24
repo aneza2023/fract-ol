@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:24 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/24 11:11:54 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 14:29:57 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ double mapping_pixels(double new_max, double new_min, double old_max, double old
     return (resized_val);
 }
 
+
+
 void mapping(int x, int y, t_fractal *mandel)
 {
     int             i;
@@ -69,6 +71,6 @@ void mapping(int x, int y, t_fractal *mandel)
         i++;
     }
     if (((mandel->z->real * mandel->z->real) + (mandel->z->im * mandel->z->im)) < 4){
-    	mlx_put_pixel(mandel->img, x, y, MAROON);
+    	mlx_put_pixel(mandel->img, x, y, ORANGE);
 	}
 }
