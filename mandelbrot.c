@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 10:58:39 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 11:03:05 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ t_fractal	*putting_val(t_fractal *mandel)
 {
 
  	mandel->z = malloc(sizeof(t_complex_nb));
-	mandel->c = malloc(sizeof(t_complex_nb));
-	if (mandel->c == NULL)
-		allocation_failed(mandel->c);
 	if (mandel->z == NULL)
 		allocation_failed(mandel->z);
 	if (mandel->mandelbrot == 1)
-	{
+	{	
+		mandel->c = malloc(sizeof(t_complex_nb));
+		if (mandel->c == NULL)
+			allocation_failed(mandel->c);
 		mandel->c->real = 0;
 		mandel->c->im = 0;
 	}
