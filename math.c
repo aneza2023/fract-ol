@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:24 by ahavrank          #+#    #+#             */
-/*   Updated: 2025/03/24 09:13:29 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 09:28:38 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ void mapping(int x, int y, t_fractal *mandel)
 	// mapping pixels / zoom + shift;
     mandel->z->real = 0.0;
     mandel->z->im = 0.0;
-	mandel->c->real = mapping_pixels(2, -2, WIDTH, 0, x);
-    mandel->c->im = mapping_pixels(-2, 2, HEIGHT, 0, y);
+	mandel->c->real = mapping_pixels(2, -2, WIDTH, 0, x) / mandel->zoom + mandel->shift_x;
+    mandel->c->im = mapping_pixels(-2, 2, HEIGHT, 0, y)/ mandel->zoom + mandel->shift_y;
 //	mandel->z = addition_of_nb(square_of_nb(mandel->z), mandel->c); 
     while (i < mandel->iteration)
     {
     	mandel->z = addition_of_nb(square_of_nb(mandel->z), mandel->c);        
         if (((mandel->z->real * mandel->z->real) + (mandel->z->im * mandel->z->im)) > 4) {
-            color = mapping_pixels(BLUE, GREEN, 50, 0, i + mandel->iteration);
+            color = mapping_pixels(BLUE, BABY_BLUE, 50, 0, i + mandel->iteration);
             mlx_put_pixel(mandel->img, x, y, color);
 			return ;
         }

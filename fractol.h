@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/22 18:27:38 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/24 09:25:05 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,43 +46,40 @@ typedef struct fractal
 
 // colors
 
-#define BLUE 0x00FFFF
-#define GREEN 0xFF00FF
+#define BLUE 0x0000FFFF
+#define GREEN 0x00FF00FF
+#define YELLOW 0xFFFF00FF
+#define RED 0xFF0000FF
 
-//#define BLUE 0x0000FF
-//#define GREEN 0x00FF00
-#define YELLOW 0xFFFF00
-#define RED 0xFF0000
+#define BROWN 0x964B00FF
+#define BEIGE 0xF5F5DCFF
+#define SIENNA 0xA0522DFF
+#define UMBER 0x8B4513FF
+#define CLAY 0xB86B4AFF
 
-#define BROWN 0x964B00
-#define BEIGE 0xF5F5DC
-#define SIENNA 0xA0522D
-#define UMBER 0x8B4513
-#define CLAY 0xB86B4A
+#define LIGHT_PINK 0xFFB6C1FF
+#define BABY_BLUE 0x89CFF0FF
+#define MINT 0xB2FFFCFF
+#define LAVENDER 0xE6E6FAFF
+#define PEACH 0xFFDAB9FF
 
-#define LIGHT_PINK 0xFFB6C1
-#define BABY_BLUE 0x89CFF0
-#define MINT 0xB2FFFC
-#define LAVENDER 0xE6E6FA
-#define PEACH 0xFFDAB9
+#define ORANGE 0xFFA500FF
+#define PURPLE 0x800080FF
+#define TEAL 0x008080FF
+#define CORAL 0xFF7F50FF
+#define SALMON 0xFA8072FF
 
-#define ORANGE 0xFFA500
-#define PURPLE 0x800080
-#define TEAL 0x008080
-#define CORAL 0xFF7F50
-#define SALMON 0xFA8072
+#define NAVY 0x000080FF
+#define FOREST 0x228B22FF
+#define MAROON 0x800000FF
+#define VIOLET 0x9400D3FF
+#define TURQUOISE 0x40E0D0FF
 
-#define NAVY 0x000080
-#define FOREST 0x228B22
-#define MAROON 0x800000
-#define VIOLET 0x9400D3
-#define TURQUOISE 0x40E0D0
-
-#define GOLD 0xFFD700
-#define SILVER 0xC0C0C0
-#define COPPER 0xB87333
-#define BRONZE 0xCD7F32
-#define ROSE_GOLD 0xFF0078
+#define GOLD 0xFFD700FF
+#define SILVER 0xC0C0C0FF
+#define COPPER 0xB87333FF
+#define BRONZE 0xCD7F32FF
+#define ROSE_GOLD 0xFF0078FF
 
 
 
