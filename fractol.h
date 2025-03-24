@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 10:42:56 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 10:49:47 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct fractal
 {
     t_complex_nb    *z;
     t_complex_nb    *c;
-//    int             mandelbrot;
+    int             mandelbrot;
 	double			realx;
 	double			realy;
 	double			imx;

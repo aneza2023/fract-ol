@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 10:43:00 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 10:58:39 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@ t_fractal	*putting_val(t_fractal *mandel)
 		allocation_failed(mandel->c);
 	if (mandel->z == NULL)
 		allocation_failed(mandel->z);
+	if (mandel->mandelbrot == 1)
+	{
+		mandel->c->real = 0;
+		mandel->c->im = 0;
+	}
 	mandel->z->real = 0;
 	mandel->z->im = 0;
-	mandel->c->real = 0;
-	mandel->c->im = 0;
 	mandel->iteration = 30;
 	mandel->shift_x = 0.0;
 	mandel->shift_y = 0.0;
 	mandel->zoom = 1;
-	printf("%f", mandel->z->real);
 	return (mandel);
 }
 
@@ -45,7 +47,6 @@ int putting_mandelbrot(t_fractal *mandel)
 		while (y < HEIGHT)
 		{
 			mapping(x, y, mandel);
-			//mlx_put_pixel(mandel->img, x, y, BLUE);
 			y++;
 		}
 		x++;
@@ -72,14 +73,14 @@ int kickoff_mandelbrot()
     mlx_t       *mandelbrot;
 	t_fractal	*mandel;
 
-	mandel = (t_fractal *)malloc(sizeof(t_fractal *));
+	mandel = (t_fractal *)malloc(sizeof(t_fractal));
 	if (mandel == NULL)
 		allocation_failed(mandel);
 	mandelbrot = mlx_init(WIDTH, HEIGHT, "Mandelbrot", false);
 	if (mandelbrot == NULL)
 		allocation_failed(mandelbrot);
 	mandel->mlx = mandelbrot;
-//	mandel->mandelbrot = 1;
+	mandel->mandelbrot = 1;
 	mandel = putting_val(mandel);
 	create_window(mandel);
 	hooks_for_stuff(mandel);
