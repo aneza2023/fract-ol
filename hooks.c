@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:26:36 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 10:33:57 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 10:43:46 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	scrooling(double xdelta, double ydelta, void *param)
 	mandel = param;
 	if (ydelta > 0){
 		mandel->zoom += ydelta;
-		putting_mandelbrot(mandel);
+		putting_mandelbrot(mandel); 
 	}
 	else if (ydelta < 0){
 		mandel->zoom += ydelta;

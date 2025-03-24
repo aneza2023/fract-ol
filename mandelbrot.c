@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 09:14:51 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 10:43:00 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int kickoff_mandelbrot()
 	if (mandelbrot == NULL)
 		allocation_failed(mandelbrot);
 	mandel->mlx = mandelbrot;
-	// SEGFAULTS when accessing fractol.something.double;
+//	mandel->mandelbrot = 1;
 	mandel = putting_val(mandel);
 	create_window(mandel);
 	hooks_for_stuff(mandel);
