@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 14:28:35 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 15:00:58 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ typedef struct fractal
     double      	shift_y;
     double      	zoom;
 }   t_fractal;
+
+typedef struct create_atof
+{
+    double   result;
+    int      sign;
+    double   decimal;
+    double   decim_places;
+}   t_atof;
 
 
 // colors
@@ -109,5 +117,6 @@ int correct_ending(void *fractol);
 int	kickoff_julia(double real, double im);
 void mapp_julia(int x, int y, t_fractal *julia);
 void	scrooling(double xdelta, double ydelta, void *param);
+double ft_atofcont(char *argv);
 
 #endif

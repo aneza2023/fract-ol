@@ -1,7 +1,6 @@
 NAME = fractol
 SOURCES = fractol.c\
 			julia.c\
-			ft_atoi.c\
 			ft_atof.c\
 			helpful_stuff.c\
 			mandelbrot.c\

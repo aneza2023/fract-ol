@@ -6,11 +6,11 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:39 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 15:05:59 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 15:05:05 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include <stdio.h>
 
 int	ft_atoi(const char *nptr)
 {
@@ -49,7 +49,6 @@ double ft_atofcont(char *argv)
     result = ft_atoi(argv);
     decimal = 0.0;
     decim_places = 10;
-    printf("result> %f\n", result);
     while ((argv[i] != '.' && argv[i] != ','))
         i++;
     if (argv[i] == '.' || argv[i] == ',')
@@ -63,5 +62,12 @@ double ft_atofcont(char *argv)
             decim_places = decim_places * 10;
         }
     }
+    printf("result> %f", result);
     return (result);
+}
+int main(int argc, char *argv[])
+{
+    (void)argc;
+    ft_atofcont(argv[1]);
+    return (0);
 }

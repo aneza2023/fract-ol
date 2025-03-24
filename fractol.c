@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:17 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 11:04:35 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 15:07:40 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int getting_val(char *argv1, char *argv2)
     double   real;
     double   im;
 
-    real =  ft_atof(argv1);
-    im = ft_atof(argv2);
+    real =  ft_atofcont(argv1);
+    im = ft_atofcont(argv2);
     kickoff_julia(real, im);
     return (0); 
 } 
