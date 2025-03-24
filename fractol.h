@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 10:49:47 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 11:14:59 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int error_input(void);
 int allocation_failed(void *fractol);
 int correct_ending(void *fractol);
 int	kickoff_julia(double real, double im);
-
+void mapp_julia(int x, int y, t_fractal *julia);
 void	scrooling(double xdelta, double ydelta, void *param);
 
 #endif

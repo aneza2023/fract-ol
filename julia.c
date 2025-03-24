@@ -6,12 +6,34 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:59 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 11:03:29 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 14:17:56 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "fractol.h"
+
+void mapp_julia(int x, int y, t_fractal *julia)
+{
+	int i;
+	int color;
+
+	i = 0;
+	julia->z->real = mapping_pixels(2, -2, WIDTH, 0, x) / julia->zoom + julia->shift_x;
+    julia->z->im = mapping_pixels(-2, 2, HEIGHT, 0, y)/ julia->zoom + julia->shift_y;
+	while (i < julia->iteration)
+    {
+    	julia->z = addition_of_nb(square_of_nb(julia->z), julia->c);        
+        if (((julia->z->real * julia->z->real) + (julia->z->im * julia->z->im)) > 4) {
+            color = mapping_pixels(BLUE, GREEN, 50, 0, i + julia->iteration);
+            mlx_put_pixel(julia->img, x, y, color);
+			return ;
+        }
+        i++;
+    }
+    if (((julia->z->real * julia->z->real) + (julia->z->im * julia->z->im)) < 4){
+    	mlx_put_pixel(julia->img, x, y, MAROON);
+	}
+}
 
 int	kickoff_julia(double real, double im)
 {
@@ -30,6 +52,11 @@ int	kickoff_julia(double real, double im)
 		allocation_failed(julia->c);
 	julia->c->real = real;
 	julia->c->im = im;
-	printf("%f", julia->c->im);
+	julia->mandelbrot = 0;
+	julia = putting_val(julia);
+	create_window(julia);
+	hooks_for_stuff(julia);
+	mlx_loop(julia->mlx);
+	mlx_terminate(julia_con);
 	return (0);
 }

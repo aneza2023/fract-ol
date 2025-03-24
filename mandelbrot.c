@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 11:03:05 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/24 11:13:17 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ int putting_mandelbrot(t_fractal *mandel)
 		y = 0;
 		while (y < HEIGHT)
 		{
-			mapping(x, y, mandel);
+			if (mandel->mandelbrot == 1)
+				mapping(x, y, mandel);
+			else if (mandel->mandelbrot == 0)
+				mapp_julia(x, y, mandel);
 			y++;
 		}
 		x++;
