@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/25 11:47:07 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/25 12:18:51 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ typedef struct complex_nb
     double  im;
 }   t_complex_nb;
 
+typedef struct formap
+{
+	int	x;
+	int y;
+	int zero;
+}	t_formap;
+
 typedef struct fractal
 {
     t_complex_nb    *z;
@@ -42,6 +49,7 @@ typedef struct fractal
     double      	shift_x;
     double      	shift_y;
     double      	zoom;
+	t_formap		*formap;
 }   t_fractal;
 
 typedef struct create_atof
@@ -117,7 +125,7 @@ int     		getting_val(char *argv1, char *argv2);
 int     		check_julia(char *argv);
 int     		create_window(t_fractal *mandel);
 void    		mapping(int x, int y, t_fractal *mandel);
-double  		mapping_pixels(double new_max, double new_min, double old_max, double old_min, int i);
+double  		mapping_pixels(double new_max, double new_min, double old_max, int i);
 int				kickoff_julia(double real, double im);
 void			mapp_julia(int x, int y, t_fractal *julia);
 double 			ft_atofcont(char *argv);

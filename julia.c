@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:59 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/25 09:40:15 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/25 12:19:45 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void mapp_julia(int x, int y, t_fractal *julia)
 	int color;
 
 	i = 0;
-	julia->z->real = mapping_pixels(2, -2, WIDTH, 0, x) / julia->zoom + julia->shift_x;
-    julia->z->im = mapping_pixels(-2, 2, HEIGHT, 0, y)/ julia->zoom + julia->shift_y;
+	julia->z->real = mapping_pixels(2, -2, WIDTH, x) / julia->zoom + julia->shift_x;
+    julia->z->im = mapping_pixels(-2, 2, HEIGHT, y)/ julia->zoom + julia->shift_y;
 	while (i < julia->iteration)
     {
     	julia->z = addition_of_nb(square_of_nb(julia->z), julia->c);        
         if (((julia->z->real * julia->z->real) + (julia->z->im * julia->z->im)) > 4) {
-            color = mapping_pixels(BLUE, GREEN, 50, 0, i + julia->iteration);
+            color = mapping_pixels(BLUE, GREEN, 50, i + julia->iteration);
             mlx_put_pixel(julia->img, x, y, color);
 			return ;
         }
