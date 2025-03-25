@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:39 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 15:05:59 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/25 11:49:11 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,15 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-double ft_atofcont(char *argv)
+double  ft_atofcontforother(double result, char *argv)
 {
-    int i;
-    double   result;
     double   decimal;
     double   decim_places;
-    
+    int      i;
+
     i = 0;
-    result = ft_atoi(argv);
     decimal = 0.0;
     decim_places = 10;
-    printf("result> %f\n", result);
     while ((argv[i] != '.' && argv[i] != ','))
         i++;
     if (argv[i] == '.' || argv[i] == ',')
@@ -63,5 +60,36 @@ double ft_atofcont(char *argv)
             decim_places = decim_places * 10;
         }
     }
+    return (result);
+}
+
+double  ft_atofcontforzero(double result, char *argv)
+{    
+    int      i;
+    double   sign;
+
+    sign = 1;
+    i = 0;
+    while ((argv[i] != '.' && argv[i] != ','))
+    {
+        if (argv[i] == '-')
+            sign = -1;
+        i++;
+    }
+    result = ft_atofcontforother(result, argv);
+    return (result * sign);
+}
+
+double ft_atofcont(char *argv)
+{
+    double   result;
+    
+    result = ft_atoi(argv);
+    if (result == 0)
+    {
+        result = ft_atofcontforzero(result, argv);
+        return(result);
+    }
+    result = ft_atofcontforother(result, argv);
     return (result);
 }

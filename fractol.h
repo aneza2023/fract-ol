@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/25 09:43:58 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/25 11:47:07 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ t_fractal		*putting_val(t_fractal *mandel);
 
 // fce julia
 int	    		ft_atoi(const char *nptr);
+double  		ft_atofcontforzero(double result, char *argv);
+double  		ft_atofcontforother(double result, char *argv);
 int     		kickoff_julia(double real, double im);
 int     		getting_val(char *argv1, char *argv2);
 int     		check_julia(char *argv);
