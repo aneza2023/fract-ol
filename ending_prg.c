@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:30:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 16:05:50 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/25 11:12:07 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,24 @@ int allocation_failed(void *fractolpt)
     exit(1);
 }
 
-int correct_ending(void *fractol)
+int correct_ending(t_fractal *fractol)
 {
-    free(fractol);
+    if (fractol->img != NULL)
+        free(fractol->img);
+    if (fractol->mlx != NULL)
+        free(fractol->mlx);
+    if (fractol->z != NULL)
+        free (fractol->z);
+    if (fractol->c != NULL)
+        free(fractol->c);
+    free(fractol); 
     exit (0);
 }
+
+// void closing(void *param)
+// {
+//     t_fractal   *fractol;
+
+//     fractol = param;
+//     correct_ending(fractol);
+// }

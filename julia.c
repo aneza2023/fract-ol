@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:59 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 15:44:53 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/25 09:40:15 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	kickoff_julia(double real, double im)
 	create_window(julia);
 	hooks_for_stuff(julia);
 	mlx_loop(julia->mlx);
-	mlx_terminate(julia_con);
+//	mlx_terminate(julia_con); //same as mandelbrot
 //	correct_ending(julia);
 	return (0);
 }

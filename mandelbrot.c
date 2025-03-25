@@ -6,7 +6,7 @@
 /*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/24 16:08:16 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/25 09:39:04 by anezka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int kickoff_mandelbrot()
 	create_window(mandel);
 	hooks_for_stuff(mandel);
 	mlx_loop(mandel->mlx);
-	mlx_terminate(mandelbrot);
+//	mlx_terminate(mandelbrot); //do i have to use it? 
 //	correct_ending(mandel);
 	return (0);
 }
