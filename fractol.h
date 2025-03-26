@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/26 18:40:08 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:07:07 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct fractal
 	double			imy;
     mlx_t           *mlx;
     mlx_image_t     *img;
-    double          iteration;
+    double          ite;
     double      	shift_x;
     double      	shift_y;
     double      	zoom;
@@ -112,7 +112,7 @@ int	    		ft_strncmp(const char *s1, const char *s2, size_t n);
 int     		check_mandelbrot(char *argv);
 int     		putting_mandelbrot(t_fractal *mandel);
 int         	kickoff_mandelbrot(void);
-t_complex_nb	*addition_of_nb(t_complex_nb *z, t_complex_nb *c);
+t_complex_nb	*add(t_complex_nb *z, t_complex_nb *c);
 t_complex_nb	*square_of_nb(t_complex_nb *z);
 t_fractal		*putting_val(t_fractal *mandel);
 
@@ -125,7 +125,7 @@ int     		getting_val(char *argv1, char *argv2);
 int     		check_julia(char *argv);
 int     		create_window(t_fractal *mandel);
 void    		mapping(int x, int y, t_fractal *mandel);
-double  		mapping_pixels(double new_max, double new_min, double old_max, int i);
+double  		mapp(double new_max, double new_min, double old_max, int i);
 int				kickoff_julia(double real, double im);
 void			mapp_julia(int x, int y, t_fractal *julia);
 double 			ft_atofcont(char *argv);

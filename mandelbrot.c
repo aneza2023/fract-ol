@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/26 17:49:30 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:07:07 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_fractal	*putting_val(t_fractal *mandel)
 {
- 	mandel->z = malloc(sizeof(t_complex_nb));
+	mandel->z = malloc(sizeof(t_complex_nb));
 	if (mandel->z == NULL)
 		allocation_failed(mandel);
 	if (mandel->mandelbrot == 1)
-	{	
+	{
 		mandel->c = malloc(sizeof(t_complex_nb));
 		if (mandel->c == NULL)
 			allocation_failed(mandel);
@@ -27,17 +27,17 @@ t_fractal	*putting_val(t_fractal *mandel)
 	}
 	mandel->z->real = 0;
 	mandel->z->im = 0;
-	mandel->iteration = 30;
+	mandel->ite = 30;
 	mandel->shift_x = 0.0;
 	mandel->shift_y = 0.0;
 	mandel->zoom = 1;
 	return (mandel);
 }
 
-int putting_mandelbrot(t_fractal *mandel)
+int	putting_mandelbrot(t_fractal *mandel)
 {
-	int		x;
-	int		y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (x < WIDTH)
@@ -52,13 +52,13 @@ int putting_mandelbrot(t_fractal *mandel)
 			y++;
 		}
 		x++;
-	}	
+	}
 	return (0);
-}	
+}
 
 int	create_window(t_fractal *mandel)
 {
-    mlx_image_t *mandel_set;
+	mlx_image_t	*mandel_set;
 
 	mandel_set = mlx_new_image(mandel->mlx, WIDTH, HEIGHT);
 	if (mandel_set == NULL)
@@ -69,9 +69,9 @@ int	create_window(t_fractal *mandel)
 	return (0);
 }
 
-int kickoff_mandelbrot()
+int	kickoff_mandelbrot(void)
 {
-    mlx_t       *mandelbrot;
+	mlx_t		*mandelbrot;
 	t_fractal	*mandel;
 
 	mandel = (t_fractal *)malloc(sizeof(t_fractal));

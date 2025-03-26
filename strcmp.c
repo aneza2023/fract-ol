@@ -6,7 +6,7 @@
 /*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:11 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/26 18:53:22 by ahavrank         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:10:05 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-int another_chech(char *argv)
+int	another_chech(char *argv)
 {
-	int i;
-	int plusminus;
+	int	i;
+	int	plusminus;
 
 	i = 0;
 	plusminus = 0;
@@ -58,9 +58,9 @@ int another_chech(char *argv)
 	}
 	if (i == 0)
 		error_input();
-	if ((argv[i - 1] == '.' || argv[i - 1] == ',')
-		|| (argv[0] == '.' || argv[0] == ','))
-			error_input();
+	if ((argv[i - 1] == '.' || argv[i - 1] == ',') || (argv[0] == '.'
+			|| argv[0] == ','))
+		error_input();
 	if (argv[i - 1] == '+' || argv[i - 1] == '-')
 		error_input();
 	return (0);
