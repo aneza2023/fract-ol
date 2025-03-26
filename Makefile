@@ -11,13 +11,13 @@ MLX42LIB = MLX42/build/libmlx42.a
 
 OBJS = $(SOURCES:.c=.o)
 CC = cc
-CFLAGS =  -Wall -Werror -Wextra -g
+CFLAGS =  -Wall -Werror -Wextra -g -O2
 MLXFLAGS = -Iinclude -ldl -lglfw -pthread -lm
 
 all:$(NAME)
 
 $(NAME):$(OBJS)
-	cc -o $(NAME) $(OBJS) $(MLX42LIB) $(MLXFLAGS)
+	cc $(CFLAGS) -o $(NAME) $(OBJS) $(MLX42LIB) $(MLXFLAGS)
 
 clean:
 	rm -rf $(OBJS)

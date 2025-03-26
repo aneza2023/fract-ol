@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/25 12:18:51 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/26 18:40:08 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,10 @@ double 			ft_atofcont(char *argv);
 // help fce
 int				error_input(void);
 int 			allocation_failed(void *fractol);
-int				correct_ending(t_fractal *param);
-mlx_closefunc 	closing(void *param);
+void			correct_ending(void *param);
+void	        *ft_memset(void *s, int c, size_t n);
+int             check_input_nb(char *argv);
+int             another_chech(char *argv);
 
 
 #endif

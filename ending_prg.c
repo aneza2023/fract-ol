@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ending_prg.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 10:30:29 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/25 11:12:07 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/26 17:53:47 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,32 @@ int error_input(void)
     exit(1);
 }
 
-int allocation_failed(void *fractolpt)
+int allocation_failed(void *mandel)
 {
+    t_fractal *fractol;
+
+    fractol = mandel;
     write(1, "Allocation failed\n", 18);
-    free(fractolpt);
+    if (fractol->img != NULL)
+        mlx_delete_image(fractol->mlx, fractol->img);
+    if (fractol->mlx != NULL)
+        mlx_terminate(fractol->mlx);
+    if (fractol->c != NULL)
+        free(fractol->c);
+    if (fractol->z != NULL)
+        free(fractol->z);
+    if (fractol != NULL)
+        free(fractol);
     exit(1);
 }
 
-int correct_ending(t_fractal *fractol)
+void correct_ending(void *mandel)
 {
-    if (fractol->img != NULL)
-        free(fractol->img);
-    if (fractol->mlx != NULL)
-        free(fractol->mlx);
+    t_fractal *fractol;
+
+    fractol = mandel;
+    mlx_delete_image(fractol->mlx, fractol->img);
+    mlx_terminate(fractol->mlx);
     if (fractol->z != NULL)
         free (fractol->z);
     if (fractol->c != NULL)
@@ -40,11 +53,3 @@ int correct_ending(t_fractal *fractol)
     free(fractol); 
     exit (0);
 }
-
-// void closing(void *param)
-// {
-//     t_fractal   *fractol;
-
-//     fractol = param;
-//     correct_ending(fractol);
-// }

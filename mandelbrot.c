@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:50:04 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/25 09:39:04 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/26 17:49:30 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 t_fractal	*putting_val(t_fractal *mandel)
 {
-
  	mandel->z = malloc(sizeof(t_complex_nb));
 	if (mandel->z == NULL)
-		allocation_failed(mandel->z);
+		allocation_failed(mandel);
 	if (mandel->mandelbrot == 1)
 	{	
 		mandel->c = malloc(sizeof(t_complex_nb));
 		if (mandel->c == NULL)
-			allocation_failed(mandel->c);
+			allocation_failed(mandel);
 		mandel->c->real = 0;
 		mandel->c->im = 0;
 	}
@@ -54,7 +53,6 @@ int putting_mandelbrot(t_fractal *mandel)
 		}
 		x++;
 	}	
-	mlx_image_to_window(mandel->mlx, mandel->img, 0, 0);
 	return (0);
 }	
 
@@ -64,7 +62,7 @@ int	create_window(t_fractal *mandel)
 
 	mandel_set = mlx_new_image(mandel->mlx, WIDTH, HEIGHT);
 	if (mandel_set == NULL)
-		allocation_failed(mandel_set);
+		allocation_failed(mandel);
 	mandel->img = mandel_set;
 	mlx_image_to_window(mandel->mlx, mandel->img, 0, 0);
 	putting_mandelbrot(mandel);
@@ -79,16 +77,15 @@ int kickoff_mandelbrot()
 	mandel = (t_fractal *)malloc(sizeof(t_fractal));
 	if (mandel == NULL)
 		allocation_failed(mandel);
+	ft_memset(mandel, 0, sizeof(t_fractal));
 	mandelbrot = mlx_init(WIDTH, HEIGHT, "Mandelbrot", false);
 	if (mandelbrot == NULL)
-		allocation_failed(mandelbrot);
+		allocation_failed(mandel);
 	mandel->mlx = mandelbrot;
 	mandel->mandelbrot = 1;
-	mandel = putting_val(mandel);
+	putting_val(mandel);
 	create_window(mandel);
 	hooks_for_stuff(mandel);
 	mlx_loop(mandel->mlx);
-//	mlx_terminate(mandelbrot); //do i have to use it? 
-//	correct_ending(mandel);
 	return (0);
 }

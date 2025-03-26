@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anezka <anezka@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahavrank <ahavrank@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 21:49:39 by anezka            #+#    #+#             */
-/*   Updated: 2025/03/25 11:49:11 by anezka           ###   ########.fr       */
+/*   Updated: 2025/03/26 18:45:03 by ahavrank         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+int check_input_nb(char *argv)
+{
+    int countdot;
+    int alpha;
+    int i;
+
+    i = 0;
+    countdot = 0;
+    alpha = 0;
+    while (argv[i] != '\0')
+    {
+        if (argv[i] == '.' || argv[i] == ',')
+            countdot++;
+        if (argv[i] < '0' || argv[i] > '9')
+            alpha++;
+        if ((argv[i] == '+' || argv[i] == '-') && i != 0)
+            error_input();
+        if ((argv[i] == '+' || argv[i] == '-') && i == 0)
+            alpha--;
+        i++;
+    }
+    if (countdot > 1)
+        error_input();
+    if (alpha > 1 || (alpha == 1 && countdot == 0))
+        error_input();
+    return (0);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -85,6 +113,8 @@ double ft_atofcont(char *argv)
     double   result;
     
     result = ft_atoi(argv);
+    check_input_nb(argv);
+    another_chech(argv);
     if (result == 0)
     {
         result = ft_atofcontforzero(result, argv);
